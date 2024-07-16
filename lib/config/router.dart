@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:travelit/layout/tabs_layout.dart';
 import 'package:travelit/screens/home_screen/index.dart';
 import 'package:travelit/screens/splash_screen/index.dart';
 
@@ -25,46 +26,44 @@ final GoRouter router = GoRouter(
               builder: (context, state) => const HomeScreen(),
             ),
           ],
-        )
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/feed',
+              builder: (context, state) => const Scaffold(
+                body: Center(
+                  child: Text('feed'),
+                ),
+              ),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/photo-zone',
+              builder: (context, state) => const Scaffold(
+                body: Center(
+                  child: Text('photo-zone'),
+                ),
+              ),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/my',
+              builder: (context, state) => const Scaffold(
+                body: Center(
+                  child: Text('my'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     )
   ],
 );
-
-class TabsLayout extends StatefulWidget {
-  final StatefulNavigationShell navigationShell;
-  const TabsLayout({super.key, required this.navigationShell});
-
-  @override
-  State<TabsLayout> createState() => _TabsLayoutState();
-}
-
-class _TabsLayoutState extends State<TabsLayout> {
-  final int _currentIndex = 0;
-
-  void _onTapNavigation(int index) {
-    widget.navigationShell.goBranch(index);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: widget.navigationShell,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        onTap: _onTapNavigation,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-        ],
-      ),
-    );
-  }
-}
