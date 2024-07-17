@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travelit/layout/tabs_layout.dart';
 import 'package:travelit/screens/home_screen/index.dart';
+import 'package:travelit/screens/login_screen/index.dart';
 import 'package:travelit/screens/splash_screen/index.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -12,6 +13,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const SplashScreen(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
     ),
     StatefulShellRoute.indexedStack(
       // parentNavigatorKey: _rootNavigatorKey,
