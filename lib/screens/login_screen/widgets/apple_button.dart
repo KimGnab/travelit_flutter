@@ -81,8 +81,8 @@ class _AppleButtonState extends State<AppleButton> {
       onPressed: _loginWithKakao,
       icon: SvgPicture.asset(
         'assets/icons/login_apple.svg',
-        width: 56,
-        height: 56,
+        width: 68,
+        height: 68,
       ),
     );
   }

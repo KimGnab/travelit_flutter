@@ -81,8 +81,8 @@ class _GoogleButtonState extends State<GoogleButton> {
       onPressed: _loginWithKakao,
       icon: SvgPicture.asset(
         'assets/icons/login_google.svg',
-        width: 56,
-        height: 56,
+        width: 68,
+        height: 68,
       ),
     );
   }

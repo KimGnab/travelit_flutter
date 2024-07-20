@@ -16,7 +16,13 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/login',
-      builder: (context, state) => const LoginScreen(),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: const LoginScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
     StatefulShellRoute.indexedStack(
       // parentNavigatorKey: _rootNavigatorKey,

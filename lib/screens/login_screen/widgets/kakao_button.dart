@@ -36,6 +36,7 @@ class _KakaoButtonState extends State<KakaoButton> {
             return await UserApi.instance.loginWithKakaoAccount();
           } catch (error) {
             log('카카오계정으로 로그인 실패 $error');
+            rethrow;
           }
         }
       } else {
@@ -44,10 +45,9 @@ class _KakaoButtonState extends State<KakaoButton> {
           return await UserApi.instance.loginWithKakaoAccount();
         } catch (error) {
           log('카카오계정으로 로그인 실패 $error');
+          rethrow;
         }
       }
-
-      log('로그인 성공 - 사용자 정보 가져오기');
     } on PlatformException catch (error) {
       if (error.code == "CANCELED") {
         log('로그인 취소 $error');
@@ -82,8 +82,8 @@ class _KakaoButtonState extends State<KakaoButton> {
       onTap: _loginWithKakao,
       child: SvgPicture.asset(
         'assets/icons/login_kakao.svg',
-        width: 56,
-        height: 56,
+        width: 68,
+        height: 68,
       ),
     );
   }
